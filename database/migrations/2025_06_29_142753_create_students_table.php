@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('nom');
+            $table->string('matricule')->unique();
+            $table->date('dateNaissance');
+            $table->timestamps(); // created_at & updated_at
         });
     }
 

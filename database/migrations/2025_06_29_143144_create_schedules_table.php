@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('schedules', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('course_id')->constrained()->onDelete('cascade'); // Clé étrangère vers courses
+            $table->foreignId('teacher_id')->constrained()->onDelete('cascade'); // Clé étrangère vers teachers
+            $table->string('jour'); // ex: Lundi, Mardi
+            $table->time('heureDebut');
+            $table->integer('duree'); // Durée en minutes ou heures
             $table->timestamps();
         });
     }
